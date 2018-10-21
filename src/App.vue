@@ -16,11 +16,8 @@ export default {
     Details
   },
   computed: {
-    activeFolioId: function () {
-      return this.$store.state.activeFolioId;
-    },
     isScreenOpen: function(){
-      if (this.activeFolioId !== false){
+      if (this.$store.state.folioOpen !== false){
         return 'open';
       }
       return '';

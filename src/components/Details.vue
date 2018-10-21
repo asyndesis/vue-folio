@@ -17,16 +17,10 @@ export default {
       return this.$store.state.activeFolioId;
     },
     currentFolio: function(){
-      if (this.activeFolioId){
-        //return this.$store.getters.getFolioById(this.activeFolioId);
-      }
-      console.log(this.$store.getters.getFolioById(this.activeFolioId));
-      return {
-        preview:'placeholder.jpg'
-      }
+      return this.$store.getters.getFolioById(this.activeFolioId)
     },
     isScreenOpen: function(){
-      if (this.activeFolioId !== false){
+      if (this.$store.state.folioOpen !== false){
         return 'open';
       }
       return '';
@@ -38,11 +32,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
   .details{
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100vw;
     bottom: 0;
     z-index: 2;
     list-style: none;

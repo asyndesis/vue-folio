@@ -27,13 +27,18 @@ export default {
       'portfolio'
     ])
   },
-  mounted:function(){
+  mounted: function(){
     let id = this.$route.params.id || false;
-    this.$store.dispatch("updateActiveFolioId", id);
+    this.showDetails(id);
   },
   methods: {
     showDetails: function(id) {
-      this.$store.dispatch("updateActiveFolioId", id);
+      if (id){
+        this.$store.dispatch("updateFolioOpen", true);
+        this.$store.dispatch("updateActiveFolioId", id);
+      }else{
+        this.$store.dispatch("updateFolioOpen", false);
+      }
     }
   }
 }
