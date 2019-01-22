@@ -17,7 +17,7 @@ export default {
     Details
   },
   watch:{
-    $route (to, from){
+    $route (to){
       let newId = to.params.id || false;
       this.showDetails(newId);
     }
@@ -52,5 +52,21 @@ export default {
     -webkit-box-direction: normal;
     flex-flow: row wrap;
     padding:10px;
+    margin:0 auto;
+  }
+  @media (min-width: 768px){
+    .brick-container{
+      width:750px;
+    }
+  }
+  @media (min-width: 992px){
+    .brick-container{
+      width:970px;
+    }
+  }
+  @media (min-width: 1200px){
+    .brick-container{
+      width:1160px;
+    }
   }
 </style>

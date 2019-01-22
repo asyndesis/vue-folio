@@ -10,11 +10,17 @@ export default new Router({
   routes: [
     {
       path: '/',
+      name: 'home',
+      component: Portfolio
+    },
+    {
+      path: '/portfolio',
       name: 'portfolio',
       component: Portfolio
     },
     {
       path: '/portfolio/:id',
+      name: 'folio-item',
       component: Portfolio,
     },
     {

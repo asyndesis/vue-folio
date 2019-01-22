@@ -1,15 +1,24 @@
 <template>
-  <router-link class="brick" :to="{path: to.path}">
-    <div class="brick-inner">
+  <div class="brick">
+    <div class="brick-inner" :tabindex="item.id">
       <div class="brick-preview" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/img/'+item.preview) + ')' }">
-        
+        <div class="brick-menu">
+          <div class="brick-menu-action">
+            <router-link :to="{path: to.path}" class="brick-button icon eye">
+             
+            </router-link>
+            <a v-bind:href="item.url" target="_blank" class="brick-button icon external" v-if="item.url !== ''">
+              
+            </a>
+          </div>
+        </div>
       </div><!--/.brick-preview-->
       <div class="brick-info">
-        <h2>{{item.title}}</h2>
+        <h2><router-link :to="{path: to.path}">{{item.title}}</router-link></h2>
         <p>{{item.description}}</p>
       </div><!--/.brick-info-->
     </div><!--/.brick-inner-->
-  </router-link><!--/.brick-->
+  </div><!--/.brick-->
 </template>
 
 <script>
@@ -33,6 +42,7 @@ export default {
     float:left;
     text-decoration: none;
     .brick-inner{
+      outline:none;
       height:100%;
       display: flex;
       -webkit-box-direction: normal;
@@ -40,18 +50,51 @@ export default {
       -moz-flex-direction: column;
       -ms-flex-direction: column;
       flex-direction: column;
-      border-radius:20px;
+      border-radius:12px;
       box-shadow:0px 0px 10px rgba(0,0,0,.25);
+      overflow:hidden;
+      border:1px solid #444;
       .brick-preview{
         -webkit-box-flex: 0;
         -moz-flex-grow: 0;
         -ms-flex-positive: 0;
         flex-grow: 0;
-        border-top-right-radius: 20px;
-        border-top-left-radius: 20px;
-        height:200px;
+        width:100%;
+        padding-bottom:100%;
         background-size:cover;
-        background-position:center center;
+        background-position:top center;
+        position:relative;
+        overflow:hidden;
+        .brick-menu{
+          height:100%;
+          background:rgba(0,0,0,.25);
+          width:100%;
+          position:absolute;
+          top:100%;
+          transition:.3s ease all;
+          opacity:0;
+          .brick-menu-action{
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 8px;
+            padding-bottom:3px;
+            background-color: hsla(0,0%,100%,.7);
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            border-radius: 38px;
+            white-space: nowrap;
+            text-align: center;
+          }
+        }
+      }
+      &:hover, &:focus{
+        .brick-menu{
+          opacity:1;
+          top:0%;
+        }
       }
       .brick-info{
         -webkit-box-flex: 1;
@@ -72,19 +115,22 @@ export default {
         -moz-justify-content: space-between;
         //justify-content: space-between;
         color:#FFF;
-        background:#888;
+        background:#333;
         min-height:100px;
-        border-bottom-right-radius: 20px;
-        border-bottom-left-radius: 20px;
+        border-top:1px solid #555;
         padding:20px;
         h2{
           margin:0;
           margin-bottom:10px;
+          a{
+            color:#FFF;
+            text-decoration: none;
+          }
         }
       }
     }
   }
-  @media (min-width: 768px){
+  @media (min-width: 500px){
     .brick{
       width:50%;
     }
