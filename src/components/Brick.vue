@@ -7,7 +7,7 @@
             <router-link :to="{path: to.path}" class="brick-button icon eye">
              
             </router-link>
-            <a v-bind:href="item.url" target="_blank" class="brick-button icon external" v-if="item.url !== ''">
+            <a v-bind:href="item.url" target="_blank" class="brick-button icon external" v-if="item.url">
               
             </a>
           </div>
@@ -33,7 +33,11 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
   .brick{
+    transition:.5s all ease;
+    transform: scale(1,1); /* Equal to scaleX(2) scaleY(0.5) */
+    transform-origin: center;
     box-sizing: border-box;
     padding-left:10px;
     width:100%;
@@ -128,6 +132,11 @@ export default {
           }
         }
       }
+    }
+  }
+  .home{
+    .brick{
+      transform: scale(.9,.9); /* Equal to scaleX(2) scaleY(0.5) */
     }
   }
   @media (min-width: 500px){

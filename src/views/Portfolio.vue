@@ -1,5 +1,5 @@
 <template>
-  <div class="brick-container">
+  <div class="brick-container" v-bind:class="isHome">
     <Brick v-bind:item="item" v-for="(item, index) in portfolio" v-bind:key="index" v-bind:to="{path: '/portfolio/' + item.id}"/>
   </div>
 </template>
@@ -25,7 +25,13 @@ export default {
   computed: {
     ...mapGetters([
       'portfolio'
-    ])
+    ]),
+    isHome: function(){
+      if (this.$route.name == 'home'){
+        return 'home';
+      }
+      return '';
+    }
   },
   mounted: function(){
     let id = this.$route.params.id || false;
