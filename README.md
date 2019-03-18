@@ -1,4 +1,4 @@
-# Trevor Portfolio (trevordesign.com)
+# Trevor Portfolio [http://www.trevordesign.com](http://www.trevordesign.com)
 
 ## Project setup
 ```
