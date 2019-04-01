@@ -1,4 +1,4 @@
-# vue-folio
+# Trevor Portfolio [http://www.trevordesign.com](http://www.trevordesign.com)
 
 ## Project setup
 ```
