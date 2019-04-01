@@ -6,7 +6,7 @@ export default new Vuex.Store({
     activeFolioId: false,
     folioOpen: false,
     folioFocused: false,
-    detailsOpen: false,
+    detailsOpen: true,
     portfolio:[
       {
         id: 1,
@@ -173,6 +173,19 @@ export default new Vuex.Store({
           {image:'full-lynne-1.jpg',desc:'A site I did for my aunt that probably could use updated videos.', align:'top'}
         ],
         description:'Design and code of Wordpress theme.',
+      },
+      {
+        id: 16,
+        title:'Dark Waters Metal',
+        preview:'thumb-darkwaters.jpg',
+        images:[
+          {image:'full-darkwaters-2.jpg',desc:'Simple wordpresss theme and logo with animations.', align:'top'},
+          {image:'full-darkwaters-3.jpg',desc:'Contact form folds out, and site adapts to screen height and width.', align:'top'},
+          {image:'full-darkwaters-4.jpg',desc:'CSS addapts to mobile.',align:'top',size:'contain'},
+          {image:'full-darkwaters-1.jpg',desc:'Portfolio is two nested slideshows.'}
+        ],
+        description:'An animated WordPress theme.',
+        url:'http://www.darkwatersmetal.com'
       },
     ]
   },
