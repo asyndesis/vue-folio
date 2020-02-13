@@ -9,6 +9,14 @@ export default new Vuex.Store({
     detailsOpen: true,
     portfolio:[
       {
+        id: 0,
+        title:'Harpies',
+        preview:'thumb-harpies.jpg',
+        images:null,
+        description:'A multiplayer role playing game written entirely in Javascript (React, PhaserJS, Node, Socket.io, Express).',
+        url:'https://harpies.herokuapp.com'
+      },
+      {
         id: 1,
         title:'Fridge Poet',
         preview:'thumb-fridge-poet.jpg',

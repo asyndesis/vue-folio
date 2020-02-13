@@ -4,7 +4,7 @@
       <div class="brick-preview" v-bind:style="{ backgroundImage: 'url(' + require('@/assets/img/'+item.preview) + ')' }">
         <div class="brick-menu">
           <div class="brick-menu-action">
-            <router-link :to="{path: to.path}" class="brick-button icon eye">
+            <router-link :to="{path: to.path}" class="brick-button icon eye" v-if="item.images">
              
             </router-link>
             <a v-bind:href="item.url" target="_blank" class="brick-button icon external" v-if="item.url">
