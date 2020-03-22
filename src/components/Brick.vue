@@ -5,17 +5,18 @@
         <div class="brick-menu">
           <div class="brick-menu-action">
             <router-link :to="{path: to.path}" class="brick-button icon eye" v-if="item.images">
-             
             </router-link>
             <a v-bind:href="item.url" target="_blank" class="brick-button icon external" v-if="item.url">
-              
             </a>
           </div>
         </div>
       </div><!--/.brick-preview-->
       <div class="brick-info">
         <h2><router-link :to="{path: to.path}">{{item.title}}</router-link></h2>
-        <p>{{item.description}}</p>
+        <p class="desc">{{item.description}} <span class="note">({{item.note}})</span></p>
+        <ol>
+         <li v-for="(tech, index) in item.tech" v-bind:key="index">{{ tech }}</li>
+        </ol>
       </div><!--/.brick-info-->
     </div><!--/.brick-inner-->
   </div><!--/.brick-->
@@ -125,10 +126,41 @@ export default {
         padding:20px;
         h2{
           margin:0;
-          margin-bottom:10px;
+          font-size:20px;
           a{
             color:#FFF;
             text-decoration: none;
+          }
+        }
+        ol{
+          list-style:none;
+          margin:0;
+          padding:0;
+          line-height:14px;
+          li{
+            font-size:10px;
+            font-weight:bold;
+            text-transform: uppercase;
+            padding:0;
+            margin:0;
+            display:inline;
+            opacity:.5;
+            &:after{
+              content: ", ";
+              padding-right:5px;
+            }
+            &:last-of-type{
+              &:after{
+                content:""
+              }
+            }
+          }
+        }
+        p{
+          margin:10px 0px;
+          font-size:14px;
+          span.note{
+            opacity:.4;
           }
         }
       }
